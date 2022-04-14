@@ -1,22 +1,30 @@
-import "styles/global.css";
-import { initializeApollo } from "services/graphql";
-import { ApolloProvider } from "@apollo/client";
-import { Provider } from "react-redux";
-import store from "redux/store";
+import { Brand, CTA, Navbar } from "components";
+import {
+  Blog,
+  Features,
+  Footer,
+  Header,
+  Possibility,
+  WhatGPT3,
+} from "containers";
+import 'styles/app.css'
 import "./i18n";
 
-import Home from "pages";
-
-function App(): JSX.Element {
-  const apolloClient = initializeApollo();
+function App() {
   return (
-    <ApolloProvider client={apolloClient}>
-      <Provider store={store}>
-        <div className="App">
-          <Home />
-        </div>
-      </Provider>
-    </ApolloProvider>
+    <div className="App">
+      <div className="gradient__bg">
+        <Navbar />
+        <Header />
+      </div>
+      <Brand />
+      <WhatGPT3 />
+      <Features />
+      <Possibility />
+      <CTA />
+      <Blog />
+      <Footer />
+    </div>
   );
 }
 
